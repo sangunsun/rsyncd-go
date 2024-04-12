@@ -1,0 +1,22 @@
+rsyncpath = "rsync" #目前未使用
+para = "-atogp"  #目前未使用
+
+# 任务列表，一个任务会启用一个单独的协程进行跟踪:
+[[task]]
+source = [ "t2", "t3" ]
+target = "root@abcabcabc.com:~/rdata/"
+# 若使用ssh传送文件到远程服务器，需要使用sshpass程序和密码文件来自动填充ssh密码
+#具体使用细节请参考sshpass相关文档
+para = '-atogp -e "sshpass -f ./pass-file ssh -p 3388"' 
+
+[[task]]
+isTemp = true #如果 isTemp 是 true，则忽略该任务，给大家用来注释标注还没有完成配置的任务。 
+source = [ "/root/srcdir/go/rsyncd-go/t4", "/root/srcdir/go/rsyncd-go/t5/" ]
+target = "/root/temp/"
+para = '-atogp '
+
+[[task]]
+isTemp = false #系统默认就是false，此句如第一个任务一样可省略
+source = [ "/root/srcdir/go/rsyncd-go/t4", "/root/srcdir/go/rsyncd-go/t5/" ]
+target = "root@abcabcabc.com:~/rdata/"
+para = "-atogp -e 'sshpass -f ./pass-file ssh -p 3388'"  #rsync 支持单括号引用参数.
