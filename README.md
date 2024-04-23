@@ -1,4 +1,6 @@
 # rsyncd-go
+"Real-time monitoring of multiple folders and immediate rsync synchronization of changed files to address the issue of low efficiency with rsync and inotify-tools when there are many files."
+
 实时监控多文件夹，并对其中变动的文件立即进行rsync同步，解决文件较多时rsync+inotify-tools效率低下问题
 
 ## 功能概述
