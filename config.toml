@@ -1,6 +1,6 @@
 # 任务列表，一个任务会启用一个单独的协程进行跟踪:
 [[task]]
-source = [ "/root/..."]
+source = [ "/root/..."] #如果要递归监控某文件夹，须在该文件夹后加三个点...
 target = "user@dns.com:/backData/host/dns/root/"
 # 若使用ssh传送文件到远程服务器，需要使用sshpass程序和密码文件来自动填充密码
 #具体使用细节请参考sshpass相关文档
